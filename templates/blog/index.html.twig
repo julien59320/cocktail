@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!
+{% endblock %}
+
+{% block body %}
+	<div class="Title">
+		<h2>Nos derniers cocktail</h2>
+	</div>
+	<section class="new-post">
+		{% for post in post %}
+			<article class="post-page">
+				<div class="content">
+					<img src="{{ post.image }}" alt="">
+					<h2 class="title">{{ post.title }}</h2>
+
+					{# <div class="metadata">Ecrit le
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('d/m/Y') }}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					à
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('H:i') }}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</div> #}
+					{{ post.content| raw }}
+					<div class="cont-btn">
+						<a href="#" class="btn">voir</a>
+					</div>
+				</div>
+			</article>
+		{% endfor %}
+	</section>
+	<div class="Title">
+		<h2>Qui somme-nous</h2>
+	</div>
+	<div class="content-about">
+		<div class="about-img">
+			<img src="{{ asset('upload/aboutCocktail.jpg') }}" alt="">
+		</div>
+		<div class="about-content">
+			<h2>What is Lorem Ipsum?</h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type spimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+			<p>
+				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum software like Aldus PageMaker including versions of Lorem Ipsum.
+			</p>
+		</div>
+	</div>
+	<section class='newsletter'>
+		<section class='box1-newsletter'>
+			<div class="news-text">
+				<h2>Ne manquer plus aucune recette</h2>
+				<div class="news-btn">
+					<input placeholder='Veuillez entrez votre email'>
+					<button>valider</button>
+				</div>
+			</div>
+		</section>
+		<section class='box2-newsletter'>
+			<img src="{{ asset('upload/testi-removebg-preview.png') }}" alt="">
+		</section>
+	</section>
+
+
+	<div class="Title">
+		<h2>Les plus consulter</h2>
+	</div>
+	<section class="new-post">
+		{% for post in post %}
+			<article class="post-page">
+				<div class="content">
+					<img src="{{ post.image }}" alt="">
+					<h2 class="title">{{ post.title }}</h2>
+
+					{{ post.content| raw }}
+					<div class="cont-btn">
+						<a href="#" class="btn">voir</a>
+					</div>
+				</div>
+			</div>
+		</article>
+	{% endfor %}
+</section>
+<div class="Title">
+	<h2>
+		<i class="fas fa-cocktail"></i>
+		Nos Cocktail</h2>
+</div>
+<section class="category-nav">
+	<ul>
+		<li>
+			<i class="fas fa-glass-cheers"></i>
+			<span>Apéritif</span>
+		</li>
+		<li>
+			<i class="fas fa-glass-whiskey"></i>
+			<span>Digestif</span>
+		</li>
+		<li>
+			<i class="fas fa-glass-martini-alt"></i>
+			<span>Stimulant</span>
+		</li>
+		<li>
+			<i class="fas fa-glass-whiskey"></i>
+			<span>Rafraichissant</span>
+		</li>
+		<li>
+			<i class="fas fa-beer"></i>
+			<span>Cocktail d'hiver</span>
+		</li>
+		<li>
+			<i class="fas fa-glass-whiskey"></i>
+			<span>Cocktail sans alcool</span>
+		</li>
+		<li>
+			<i class="fas fa-glass-whiskey"></i>
+			<span>Contact</span>
+		</li>
+	</ul>
+
+</section>
+<section class="partage">
+	<div class="box1-partage">
+		<h2>Partager a nous vos recettes</h2>
+		<div class="partage-content">
+			<img src="{{ asset('upload/HurricaneDrink.png') }}" alt="">
+			<textarea placeholder="Entrez votre recette"></textarea>
+		</div>
+	</div>
+	<div class="circle">
+		<div class="box2-partage"></div>
+		<div class="box3-partage">
+			<button class='btn'>Partager</button>
+		</div>
+	</div>
+</section>{% endblock %}
