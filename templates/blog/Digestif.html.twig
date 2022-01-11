@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<div class="Title">
+		<h2>Nos Digestifs</h2>
+	</div>
+	<section class="new-post">
+		{% for post in post %}
+			<article class="post-page">
+				<div class="content">
+					<img src="{{ post.image }}" alt="">
+					<h2 class="title">{{ post.title }}</h2>
+
+					{{ post.content| raw }}
+					<div class="cont-btn">
+						<a href="#" class="btn">voir</a>
+					</div>
+				</div>
+			</div>
+		</article>
+	{% endfor %}
+</section>{% endblock %}

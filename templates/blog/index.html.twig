@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!
-{% endblock %}
 
 {% block body %}
 	<div class="Title">
@@ -15,13 +13,13 @@
 					<h2 class="title">{{ post.title }}</h2>
 
 					{# <div class="metadata">Ecrit le
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('d/m/Y') }}
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					à
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('H:i') }}
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</div> #}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('d/m/Y') }}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					à
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('H:i') }}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</div> #}
 					{{ post.content| raw }}
-					<div class="cont-btn">
-						<a href="#" class="btn">voir</a>
+					<div
+						class="cont-btn">{# <a href={{path('Show') }} class="btn">voir</a> #}
 					</div>
 				</div>
 			</article>
@@ -84,49 +82,64 @@
 </div>
 <section class="category-nav">
 	<ul>
+		{# <img src="{{ asset('upload/Logo2.png') }}" alt="" class="logo-nav"/> #}
+
 		<li>
-			<i class="fas fa-glass-cheers"></i>
-			<span>Apéritif</span>
+			<a href={{ path('Aperitif')}}>
+				<i class="fas fa-glass-cheers"></i>
+				<span>
+					Apéritif
+				</span>
+			</a>
 		</li>
-		<li>
+	</li>
+	<li>
+		<a href={{ path('Digestif')}}>
 			<i class="fas fa-glass-whiskey"></i>
 			<span>Digestif</span>
-		</li>
-		<li>
+		</a>
+	</li>
+	<li>
+		<a href={{ path('Stimulant')}}>
 			<i class="fas fa-glass-martini-alt"></i>
 			<span>Stimulant</span>
-		</li>
-		<li>
+		</a>
+	</li>
+	<li>
+		<a href={{ path('Rafraichissant')}}>
 			<i class="fas fa-glass-whiskey"></i>
 			<span>Rafraichissant</span>
-		</li>
-		<li>
+		</a>
+	</li>
+	<li>
+		<a href={{ path('CocktailHiver')}}>
 			<i class="fas fa-beer"></i>
 			<span>Cocktail d'hiver</span>
-		</li>
-		<li>
+		</a>
+	</li>
+	<li>
+		<a href={{ path('CocktailSansAlcool')}}>
 			<i class="fas fa-glass-whiskey"></i>
 			<span>Cocktail sans alcool</span>
-		</li>
-		<li>
+		</a>
+	</li>
+	<li>
+		<a href={{ path('Contact')}}>
 			<i class="fas fa-glass-whiskey"></i>
 			<span>Contact</span>
-		</li>
-	</ul>
-
-</section>
-<section class="partage">
-	<div class="box1-partage">
-		<h2>Partager a nous vos recettes</h2>
-		<div class="partage-content">
-			<img src="{{ asset('upload/HurricaneDrink.png') }}" alt="">
-			<textarea placeholder="Entrez votre recette"></textarea>
-		</div>
+		</a>
+	</li>
+</ul></section><section class="partage">
+<div class="box1-partage">
+	<h2>Partager nous vos recettes</h2>
+	<div class="partage-content">
+		<img src="{{ asset('upload/HurricaneDrink.png') }}" alt="">
+		<textarea placeholder="Entrez votre recette"></textarea>
 	</div>
-	<div class="circle">
-		<div class="box2-partage"></div>
-		<div class="box3-partage">
-			<button class='btn'>Partager</button>
-		</div>
+</div>
+<div class="circle">
+	<div class="box2-partage"></div>
+	<div class="box3-partage">
+		<button class='btn'>Partager</button>
 	</div>
-</section>{% endblock %}
+</div></section>{% endblock %}

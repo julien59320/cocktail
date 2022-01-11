@@ -209,9 +209,6 @@ nav {
   color: white;
 }
 .links a {
-  display: block;
-  font-size: 1.5rem;
-  text-transform: capitalize;
   padding: 1rem 1.5rem;
   color: var(--clr-grey-5);
   transition: var(--transition);
@@ -310,6 +307,7 @@ Caroussel
   height: 600px;
   position: relative;
   overflow: hidden;
+  padding-top: 4rem;
 }
 #container {
   width: 1000px;
@@ -459,7 +457,7 @@ Post Home Page
   display: flex;
   justify-content: center;
 }
-.content .btn {
+.cont-btn .btn {
   width: 40%;
   border: 2px solid white;
   border-radius: 1rem;
@@ -590,7 +588,7 @@ partage
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 282px;
+  height: 295px;
   background: var(--clr-grey-6);
   width: 70%;
   border-radius: 50%;
@@ -617,15 +615,17 @@ pre-footer
   display: flex;
   padding: 3rem;
 }
+.pre-footer h2 {
+  color: #63b4d1;
+  margin-bottom: 2rem;
+}
 .pre-footer-lien {
   width: 50%;
 }
-.pre-footer-lien h2 {
-  margin-bottom: 2rem;
-}
+
 .pre-footer-lien li {
   font-size: 1.7rem;
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
 }
 .pre-footer-social {
   width: 50%;
@@ -641,7 +641,6 @@ pre-footer
   flex-direction: column;
   justify-content: center;
 }
-
 /*
 =============== 
 footer
