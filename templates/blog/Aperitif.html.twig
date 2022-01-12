@@ -3,7 +3,7 @@
 
 {% block body %}
 	<div class="Title">
-		<h2>Nos Apéritif</h2>
+		<h2>{{title}}</h2>
 	</div>
 	<section class="new-post">
 		{% for post in post %}
@@ -14,7 +14,7 @@
 
 					{{ post.content| raw }}
 					<div class="cont-btn">
-						<a href="#" class="btn">voir</a>
+						<a href="#" class="btn">{{btn}}</a>
 					</div>
 				</div>
 			</div>

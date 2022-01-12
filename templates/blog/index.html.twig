@@ -3,50 +3,42 @@
 
 {% block body %}
 	<div class="Title">
-		<h2>Nos derniers cocktail</h2>
+		<h2>{{title1}}</h2>
 	</div>
 	<section class="new-post">
 		{% for post in post %}
 			<article class="post-page">
 				<div class="content">
-					<img src="{{ post.image }}" alt="">
+					<img src="{{ post.image }}" . alt="">
 					<h2 class="title">{{ post.title }}</h2>
-
-					{# <div class="metadata">Ecrit le
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('d/m/Y') }}
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					à
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					{{ post.createdAt | date('H:i') }}
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</div> #}
-					{{ post.content| raw }}
-					<div
-						class="cont-btn">{# <a href={{path('Show') }} class="btn">voir</a> #}
+					{{ post.content| raw}}
+					<div class="cont-btn">
+						<a href={{path('Show', {id: post.id} ) }} class="btn">{{btnPost}}</a>
 					</div>
 				</div>
 			</article>
 		{% endfor %}
 	</section>
 	<div class="Title">
-		<h2>Qui somme-nous</h2>
+		<h2>{{title2}}</h2>
 	</div>
 	<div class="content-about">
 		<div class="about-img">
 			<img src="{{ asset('upload/aboutCocktail.jpg') }}" alt="">
 		</div>
 		<div class="about-content">
-			<h2>What is Lorem Ipsum?</h2>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type spimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-			<p>
-				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum software like Aldus PageMaker including versions of Lorem Ipsum.
-			</p>
+			<h2>{{aboutTitle}}</h2>
+			<p>{{aboutContent}}</p>
+
 		</div>
 	</div>
 	<section class='newsletter'>
 		<section class='box1-newsletter'>
 			<div class="news-text">
-				<h2>Ne manquer plus aucune recette</h2>
+				<h2>{{newsTitle}}</h2>
 				<div class="news-btn">
 					<input placeholder='Veuillez entrez votre email'>
-					<button>valider</button>
+					<button>{{newsBtn}}</button>
 				</div>
 			</div>
 		</section>
@@ -57,7 +49,7 @@
 
 
 	<div class="Title">
-		<h2>Les plus consulter</h2>
+		<h2>{{title3}}</h2>
 	</div>
 	<section class="new-post">
 		{% for post in post %}
@@ -68,78 +60,82 @@
 
 					{{ post.content| raw }}
 					<div class="cont-btn">
-						<a href="#" class="btn">voir</a>
+						<a href="#" class="btn">{{btnPost}}</a>
 					</div>
 				</div>
-			</div>
-		</article>
-	{% endfor %}
-</section>
-<div class="Title">
-	<h2>
-		<i class="fas fa-cocktail"></i>
-		Nos Cocktail</h2>
-</div>
-<section class="category-nav">
-	<ul>
-		{# <img src="{{ asset('upload/Logo2.png') }}" alt="" class="logo-nav"/> #}
+			</article>
+		{% endfor %}
+	</section>
+	<div class="Title">
+		<h2>
+			<i class="fas fa-cocktail"></i>
+			{{title4}}</h2>
+	</div>
+	<section class="category-nav">
+		<ul>
+			{# <img src="{{ asset('upload/Logo2.png') }}" alt="" class="logo-nav"/> #}
 
+			<li>
+				<a href={{ path('Aperitif')}}>
+					<i class="fas fa-glass-cheers"></i>
+					<span>
+						{{catNav1}}
+					</span>
+				</a>
+			</li>
+		</li>
 		<li>
-			<a href={{ path('Aperitif')}}>
-				<i class="fas fa-glass-cheers"></i>
+			<a href={{ path('Digestif')}}>
+				<i class="fas fa-glass-whiskey"></i>
 				<span>
-					Apéritif
+					{{catNav2}}
 				</span>
 			</a>
 		</li>
-	</li>
-	<li>
-		<a href={{ path('Digestif')}}>
-			<i class="fas fa-glass-whiskey"></i>
-			<span>Digestif</span>
-		</a>
-	</li>
-	<li>
-		<a href={{ path('Stimulant')}}>
-			<i class="fas fa-glass-martini-alt"></i>
-			<span>Stimulant</span>
-		</a>
-	</li>
-	<li>
-		<a href={{ path('Rafraichissant')}}>
-			<i class="fas fa-glass-whiskey"></i>
-			<span>Rafraichissant</span>
-		</a>
-	</li>
-	<li>
-		<a href={{ path('CocktailHiver')}}>
-			<i class="fas fa-beer"></i>
-			<span>Cocktail d'hiver</span>
-		</a>
-	</li>
-	<li>
-		<a href={{ path('CocktailSansAlcool')}}>
-			<i class="fas fa-glass-whiskey"></i>
-			<span>Cocktail sans alcool</span>
-		</a>
-	</li>
-	<li>
-		<a href={{ path('Contact')}}>
-			<i class="fas fa-glass-whiskey"></i>
-			<span>Contact</span>
-		</a>
-	</li>
-</ul></section><section class="partage">
-<div class="box1-partage">
-	<h2>Partager nous vos recettes</h2>
-	<div class="partage-content">
-		<img src="{{ asset('upload/HurricaneDrink.png') }}" alt="">
-		<textarea placeholder="Entrez votre recette"></textarea>
+		<li>
+			<a href={{ path('Stimulant')}}>
+				<i class="fas fa-glass-martini-alt"></i>
+				<span>{{catNav3}}</span>
+			</a>
+		</li>
+		<li>
+			<a href={{ path('Rafraichissant')}}>
+				<i class="fas fa-glass-whiskey"></i>
+				<span>{{catNav4}}</span>
+			</a>
+		</li>
+		<li>
+			<a href={{ path('CocktailHiver')}}>
+				<i class="fas fa-beer"></i>
+				<span>{{catNav5}}</span>
+			</a>
+		</li>
+		<li>
+			<a href={{ path('CocktailSansAlcool')}}>
+				<i class="fas fa-glass-whiskey"></i>
+				<span>{{catNav6}}</span>
+			</a>
+		</li>
+		<li>
+			<a href={{ path('Contact')}}>
+				<i class="fas fa-glass-whiskey"></i>
+				<span>{{contact}}</span>
+			</a>
+		</li>
+	</ul>
+</section>
+<section class="partage">
+	<div class="box1-partage">
+		<h2>{{partageTitle}}</h2>
+		<div class="partage-content">
+			<img src="{{ asset('upload/HurricaneDrink.png') }}" alt="">
+			<textarea placeholder="Entrez votre recette"></textarea>
+		</div>
 	</div>
-</div>
-<div class="circle">
-	<div class="box2-partage"></div>
-	<div class="box3-partage">
-		<button class='btn'>Partager</button>
+	<div class="circle">
+		<div class="box2-partage"></div>
+		<div class="box3-partage">
+			<button class='btn'>{{newsBtn}}</button>
+		</div>
 	</div>
-</div></section>{% endblock %}
+</section>{% endblock %}
